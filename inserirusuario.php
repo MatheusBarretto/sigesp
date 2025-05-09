@@ -1,31 +1,37 @@
 <?php require_once ('includes/topo.php');
 
 
-    // if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['cpf']) && isset($_POST['endereco']) && isset($_POST['login']) && isset($_POST['senha']) && isset($_POST['confirmar_senha'])){
-    $nome = trim($_POST['nome']);
-    $email = trim($_POST['email'] ??'');
-    $cpf = trim($_POST['cpf']);
-    $endereco = trim($_POST['endereco']);
-    $login = trim($_POST['login']);
-    $senha = trim($_POST['senha']);
-    $confirmarSenha = trim($_POST['confirmar_senha']??'');
+    if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['cpf']) && isset($_POST['endereco']) && isset($_POST['login']) && isset($_POST['senha']) && isset($_POST['confirmar-senha']) && isset($_POST['telefone'])){
     
-    if($senha === $confirmarSenha){
+    $nomeUsuario = $_POST['nome'];
+    $emailUsuario = $_POST['email'];  
+    $cpfUsuario = $_POST['cpf'];  
+    $enderecoUsuario = $_POST['endereco'];  
+    $loginUsuario = $_POST['login'];  
+    $senhaUsuario = $_POST['senha'];  
+    $confirmarSenha = $_POST['confirmar-senha']; 
+    $telefoneUsuario = $_POST['telefone']; 
+    
+    
+    
+    if($senhaUsuario == $confirmarSenha){
         try{
-            // $hash = password_hash($senha, PASSWORD_BCRYPT);
-            // $sql = "insert into usuarios (nome, email, cpf, endereco, login, senha) values ('".$nome."', '".$email."', '".$cpf."', '".$endereco."', '".$login."', '".$hash."')";
+            $hash = password_hash($senhaUsuario, PASSWORD_BCRYPT);
             
-            $sql = "INSERT INTO usuarios (nome, email, cpf, endereco, login, senha)
-                    VALUES (:nome, :email, :cpf, :login, :senha)";
+            require_once ('banco/conexao.php');
 
-            $stmt->prepare($sql);
-            $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-            $stmt->bindParam(':cpf', $cpf, PDO::PARAM_STR);
-            $stmt->bindParam(':endereco', $endereco, PDO::PARAM_STR);
-            $stmt->bindParam(':login', $login, PDO::PARAM_STR);
-            $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
+            $sql = "insert into usuarios (nome, email, cpf, endereco, login, senha, telefone) values (:nome, :email, :cpf, :endereco, :login, :senha, :telefone)";
+            
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':nome', $nomeUsuario, PDO::PARAM_STR);
+            $stmt->bindParam(':email', $emailUsuario, PDO::PARAM_STR);
+            $stmt->bindParam(':cpf', $cpfUsuario, PDO::PARAM_STR);
+            $stmt->bindParam(':endereco', $enderecoUsuario, PDO::PARAM_STR);
+            $stmt->bindParam(':login', $loginUsuario, PDO::PARAM_STR);
+            $stmt->bindParam(':senha', $hash, PDO::PARAM_STR);
+            $stmt->bindParam(':telefone', $telefoneUsuario, PDO::PARAM_STR);
             $stmt->execute();
+
             
             echo "Cadastro realizado!";
 
@@ -33,6 +39,7 @@
             echo "<h2 style='color:red;'>Erro: " . $e->getMessage() . 
             "</h2>";
         }
+        }   
 
     }else{
         echo "DEU RUIM...";

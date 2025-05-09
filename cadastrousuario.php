@@ -12,6 +12,9 @@ require_once ('includes/topo.php');
             <label for="email">Email:</label><br>
             <input id="email" name="email" type="email"  placeholder="Email@email.com" size="56" value=""required>
             <br>
+            <label for="telefone">Telefone / WhatsApp:</label><br>
+            <input id="telefone" name="telefone" type="text"  placeholder="(XX) XXXX-XXXX" size="56" value=""required>
+            <br>
             <label for="cpf">Cpf:</label><br>
             <input id="cpf"name="cpf" type="text"  placeholder="Cpf" size="56" value=""required>
             <br>
@@ -24,8 +27,8 @@ require_once ('includes/topo.php');
             <label for="senha">Senha:</label><br>
             <input id="senha"name="senha"type="password"  placeholder="Senha"size="56" value=""required>
             <br>
-            <label for="confirmar_senha">Confirme sua senha:</label><br>
-            <input id="confirmar_senha"name="confirmar_senha" type="password"  placeholder="Confirmação"size="56" value=""required>
+            <label for="confirmar-senha">Confirme sua senha:</label><br>
+            <input id="confirmar-senha"name="confirmar-senha" type="password"  placeholder="Confirmação"size="56" value=""required>
             <br><br>
             <input type="submit" name="Enviar"value="Cadastrar">
             <input type="reset" value="Limpar">
