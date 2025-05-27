@@ -1,15 +1,14 @@
 <?php 
 require_once 'includes/topo.php';
 session_start();
-if ($_SESSION['tipoUsuario']==1){
+if ($_SESSION['tipoUsuario']=="locador"){
     echo "<p style='color:blue;'>Seja bem vindo(a) " . 
     $_SESSION['nomeUsuarios'] . "</p>";
 ?>
     <nav>
         <a href="editarusuario.php"> Perfil </a><br><br>
-        <a href="listarespacos.php"> Alugar Espaços </a><br><br>
-        <a href="perfil.php"> Meus Agendamentos </a><br><br>    
-        <a href="perfil.php"> Logout </a>
+        <a href="espacoslocador.php"> Meus Espaços </a><br><br>    
+        <a href="login.php"> Logout </a>
     </nav>
 
 <?php

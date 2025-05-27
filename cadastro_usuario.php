@@ -31,10 +31,10 @@
             <input type="password" name="confirmar-senha" value=""  placeholder="Confirme sua senha"><br>
 
             <br>
-            <input type="radio" value="0" name="tipo">
+            <input type="radio" value="locatario" name="tipo">
             <label for="locatario">Quero alugar um espaço</label><br>
 
-            <input type="radio" value="1" name="tipo">
+            <input type="radio" value="locador" name="tipo">
             <label for="locador">Quero ser um locador</label><br>
 
             <br>

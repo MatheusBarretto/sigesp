@@ -30,11 +30,11 @@ catch(PDOException $erro){
         <thead class="text-center">
             <th>ID</th>
             <th>DESCRIÇÃO</th>
-            <th>DATA DE CADASTRO</th>
+            <!-- <th>DATA DE CADASTRO</th> -->
             <th>CATEGORIA</th>
-            <th>PREÇO P/ HORA</th>
-            <th>PREÇO P/ DIA</th>
-            <th>EDITAR / EXCLUIR</th>
+            <th>PREÇO POR HORA</th>
+            <th>PREÇO POR DIA</th>
+            <th>AGENDAR</th>
         </thead>
         
         <tbody class="text-left">
@@ -42,13 +42,12 @@ catch(PDOException $erro){
                 <tr>
                     <td><?php echo $espacos ['id'];?></td>
                     <td><?php echo $espacos ['descricao'];?></td>
-                    <td><?php echo $espacos ['data_cadastro'];?></td>
+                    <!-- <td><?php echo $espacos ['data_cadastro'];?></td> -->
                     <td><?php echo $espacos ['categoria'];?></td>
                     <td><?php echo $espacos ['preco_hr'];?></td>
                     <td><?php echo $espacos ['preco_dia'];?></td>
                     <td class="text-center">
-                        <a href="editarusuario.php"><span class="material-symbols-outlined">edit</span></a>
-                        <a href="excluirusuario.php"><span class="material-symbols-outlined">delete</span></a>
+                        <a href="cadastroagendamento.php?id=<?php echo $espacos ['id'];?>"><span title="Reservar"class="material-symbols-outlined">calendar_month</span></a>
                     </td>
                 </tr>
             <?php }?>

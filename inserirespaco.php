@@ -3,7 +3,7 @@
 
 <?php
 session_start();
-if ($_SESSION['tipoUsuario']==0){
+if ($_SESSION['tipoUsuario']=="locador" ){
     echo "<p style='color:blue;'>Seja bem vindo(a) " . 
     $_SESSION['nomeUsuarios'] . "</p>";
 

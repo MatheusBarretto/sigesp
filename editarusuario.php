@@ -21,7 +21,7 @@ session_start();
                 
                 <h1> - EDITAR PERFIL - </h1>
 
-                    <form name="Cadastro" method="post" action="atualizar.php">
+                    <form name="Editar-usuario" method="post" action="atualizar.php">
                     <label for="nome">Nome:</label><br>
                     <input type="text" name="nome" value="<?php echo $usuarios[0]['nome']?>" placeholder="Digite seu nome"><br>
 

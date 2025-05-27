@@ -27,21 +27,21 @@ try{
         //die;
 
             if(password_verify($senha, $hashSenha)){
-                if($usuarios[0]['tipo'] == 0){
+                if($usuarios[0]['tipo'] == "locador"){
                     session_start();
-                    $_SESSION['tipoUsuario'] = 0;
+                    $_SESSION['tipoUsuario'] = "locador";
                     $_SESSION['idUsuario'] = $usuarios [0]['id'];
                     $_SESSION['nomeUsuarios'] = $usuarios [0]['nome'];
                     echo "<script> window.alert('Login efetuado com sucesso!') 
-                        window.location.href='homelocatario.php'</script>";
+                        window.location.href='homelocador.php'</script>";
                 }
-                    if($usuarios[0]['tipo'] == 1){
+                    if($usuarios[0]['tipo'] == "locatario"){
                         session_start();
-                        $_SESSION ['tipoUsuario'] = 1;
+                        $_SESSION ['tipoUsuario'] = "locatario";
                         $_SESSION['idUsuario'] = $usuarios [0]['id'];
                         $_SESSION['nomeUsuarios'] = $usuarios [0]['nome'];
                         echo "<script> window.alert('Login efetuado com sucesso!') 
-                            window.location.href='homelocador.php'</script>";
+                            window.location.href='homelocatario.php'</script>";
                 };
 
             }else{
