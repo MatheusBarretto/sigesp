@@ -1,22 +1,27 @@
 <?php require_once("includes/topo.php"); ?>
 
+    
+    <!-- <img src="imagens/SIGESP-LOGO.png" alt="LOGO" width="100" height="150"> -->
 
-
-    <div class="row" style="width: 500px; margin: auto;" >
-        <h4> SIGESP LOGIN </h4>
-        <div class="col-md-6; input-group mb-6">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        
+        <div class="mb-3" style="width: 350px;">  
+            <h4> LOGIN </h4>
             <form name="Login" action="validarlogin.php" method="post">
                 <!-- INSERÇÃO DO USUÁRIO PARA LOGIN NO SISTEMA -->
-                <label class="form-label"for="usuario">Email:</label> <br>
+                <label class="form-label" for="usuario">Email:</label> <br>
                 <input class="form-control"type="email" id="email" name="email" value=""><br>
                 <!-- INSERÇÃO DA SENHA PARA LOGIN NO SISTEMA -->
                 <label class="form-label" for="senha">Senha:</label> <br>
-                <input class="form-control" type="password" id="senha" name="senha" value=""><br><br>
+                <input class="form-control" type="password" id="senha" name="senha" value=""><br>
                 <!-- BOTÃO PARA SUBMITAR AS INFORMAÇÕES DE LOGIN -->
-                <input type="submit" value="Entrar">
-                <input type="reset" value="Limpar"><br><br>
-            </form>  
-        </div>
-    <div>
+                <input class="btn btn-primary" type="submit" value="Entrar">
+                <input class="btn btn-light" type="reset" value="Limpar"><br><br>
 
-<p class ="p-login">É um novo usuário? <a href="cadastro_usuario.php">clique aqui</a> e faça seu cadastro ?</p>
+            </form> 
+
+            <p style="font-size:20px">É um novo usuário? <a href="cadastro_usuario.php">Faça seu cadastro</a></p>
+        <div>
+    </div>
+
+
