@@ -1,6 +1,6 @@
 <?php
 try {
-    $conn = new PDO("mysql:host=localhost; dbname=sigespbd","root", "");
+    $conn = new PDO("mysql:host=localhost; dbname=sigesp","root", "");
     $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // echo "<p> Banco de dados conectado com sucesso! </p>";
 } catch (PDOException $erro) {

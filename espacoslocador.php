@@ -16,7 +16,7 @@ if ($_SESSION['tipoUsuario']=="locador"){
                 categoria,
                 preco_hr,
                 preco_dia
-                from espacos where fk_usuario_id = ".$_SESSION['idUsuario'].";
+                from espacos where usuario_id = ".$_SESSION['idUsuario'].";
                 ";
 
         $select = $conn->prepare($sql);
@@ -56,7 +56,7 @@ if ($_SESSION['tipoUsuario']=="locador"){
                         <td><?php echo $espacos ['preco_hr'];?></td>
                         <td><?php echo $espacos ['preco_dia'];?></td>
                         <td class="text-center">
-                            <a href="editarusuario.php"><span class="material-symbols-outlined">edit</span></a>
+                            <a href="editarespaco.php?id=<?php echo $espacos['id']?>"><span class="material-symbols-outlined">edit</span></a>
                             <a href="excluirusuario.php"><span class="material-symbols-outlined">delete</span></a>
                         </td>
                     </tr>

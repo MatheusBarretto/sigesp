@@ -4,7 +4,7 @@
    
 
 
-<body>
+
     <h1>- CADASTRO DE ESPAÇOS -</h1>
     <form name="Cadastro_espaco" method="post" action="inserirespaco.php">
         
@@ -41,8 +41,7 @@
             <input type="submit" value="Cadastro_espaco">
 
     </form>
-</body>
-</html>
+
 
 
 

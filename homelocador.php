@@ -2,7 +2,7 @@
 require_once 'includes/topo.php';
 session_start();
 if ($_SESSION['tipoUsuario']=="locador"){
-    echo "<p style='color:blue;'>Seja bem vindo(a) " . 
+    echo "<p style='color:white;'>Seja bem vindo(a) " . 
     $_SESSION['nomeUsuarios'] . "</p>";
 ?>
     <nav>

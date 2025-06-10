@@ -24,7 +24,7 @@ if ($_SESSION['tipoUsuario']=="locador" ){
         require_once("banco/conexao.php");
 
         if($tipoCobranca=="por_hora"){
-            $sql = "insert into espacos (descricao, endereco, telefone, email, categoria, preco_hr, fk_usuario_id) values (:descricao, :endereco, :telefone, :email, :categoria, :preco_hr, :idusuario)";
+            $sql = "insert into espacos (descricao, endereco, telefone, email, categoria, preco_hr, usuario_id) values (:descricao, :endereco, :telefone, :email, :categoria, :preco_hr, :idusuario)";
 
             $stmt = $conn->prepare($sql);
             $stmt->bindparam(':descricao', $descricaoEspaco, PDO::PARAM_STR);
@@ -41,7 +41,7 @@ if ($_SESSION['tipoUsuario']=="locador" ){
 
 
         }else{
-            $sql = "insert into espacos (descricao, endereco, telefone, email, categoria, preco_dia) values (:descricao, :endereco, :telefone, :email, :categoria, :preco_dia)";
+            $sql = "insert into espacos (descricao, endereco, telefone, email, categoria, preco_dia, usuario_id) values (:descricao, :endereco, :telefone, :email, :categoria, :preco_dia, :idusuario)";
 
             $stmt = $conn->prepare($sql);
             $stmt->bindparam(':descricao', $descricaoEspaco, PDO::PARAM_STR);
@@ -50,14 +50,19 @@ if ($_SESSION['tipoUsuario']=="locador" ){
             $stmt->bindparam(':email', $emailEspaco, PDO::PARAM_STR);
             $stmt->bindparam(':categoria', $categoriaEspaco, PDO::PARAM_STR);
             $stmt->bindparam(':preco_dia', $valorEspaco, PDO::PARAM_INT);
+            $stmt->bindparam(':idusuario', $idLocatario, PDO::PARAM_INT);
             $stmt->execute();
 
+            
             echo "<script> window.alert('Espaço cadastrado com sucesso!') 
-            window.location.href='espacoslocatario.php'</script>";
+            window.location.href='espacoslocador.php'</script>";
         }
         }else{
             echo " <h2> O FORMULÁRIO NAO ESTÁ ENVIANDO OS DADOS ... </h2>";
         }
+
+
+
      
     }catch(PDOException $e){
         echo "<h2 style='color:red;'>Erro: " .$e->getMessage(). "</h2>";
